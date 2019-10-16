@@ -12,9 +12,17 @@ namespace Homework8
 
 		public ICommand SwipeCommand => new Command<string>(Swipe);
 
-		public string img { get; private set; }
+        public string img { get; private set; }
+
+        public bool gameVisible = true;
+        public bool resultsVisible = false;
 
         public int count = 0;
+
+        public int Count { get { return count; } }
+        public string Img { get { return img; } }
+        public bool GameVisible { get { return gameVisible; } }
+        public bool ResultsVisible { get { return resultsVisible; } }
 
 		public SwipeCommandPageViewModel()
 		{
@@ -23,15 +31,19 @@ namespace Homework8
 
 		void Swipe(string value)
 		{
-            if (value == "right" && img.TrimEnd(img[img.Length - 1]) == "Chick" || value == "right" && img.TrimEnd(img[img.Length - 1]) == "Duck")
+            if (value == "Right" && img.TrimEnd(img[img.Length - 1]) == "Chick" || value == "Left" && img.TrimEnd(img[img.Length - 1]) == "Duck")
             {
                 img = imgs[new Random().Next(0, 9)];
-                OnPropertyChanged("img");
+                OnPropertyChanged("Img");
                 count++;
             }
             else
             {
-
+                gameVisible = false;
+                resultsVisible = true;
+                OnPropertyChanged("Count");
+                OnPropertyChanged("GameVisible");
+                OnPropertyChanged("ResultsVisible");
             }
         }
 

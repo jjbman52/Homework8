@@ -7,10 +7,10 @@
              x:Class="Homework8.MainPage">
 
     <StackLayout>
-        <Image Source="{Binding img}"
+        <Image Source="{Binding Img}"
                WidthRequest="{OnPlatform iOS=300, Android=250}"
                HorizontalOptions="Center"
-               IsVisible="true"/>
+               IsVisible="{Binding GameVisible}"/>
         <BoxView>
             <BoxView.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Left" Command="{Binding SwipeCommand}" CommandParameter="Left" />
@@ -18,8 +18,8 @@
             </BoxView.GestureRecognizers>
         </BoxView>
 
-        <Label Text="{Binding count}"
-               IsVisible="false"/>
-        <Button IsVisible="false"/>
+        <Label Text="{Binding Count}"
+               IsVisible="{Binding ResultsVisible}"/>
+        <Button IsVisible="{Binding ResultsVisible}"/>
     </StackLayout>
 </ContentPage>
