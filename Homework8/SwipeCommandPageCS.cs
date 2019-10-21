@@ -8,7 +8,7 @@ namespace Homework8
 	{
 		public SwipeCommandPageCS()
 		{
-			var boxView = new BoxView { WidthRequest = 300, HeightRequest = 300, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.CenterAndExpand };
+			var boxView = new BoxView {HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.CenterAndExpand };
 			var img = new Image();
 			img.SetBinding(Image.SourceProperty, "Img");
 

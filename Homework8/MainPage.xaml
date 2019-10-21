@@ -8,18 +8,31 @@
 
     <StackLayout>
         <Image Source="{Binding Img}"
-               WidthRequest="{OnPlatform iOS=300, Android=250}"
-               HorizontalOptions="Center"
+               HeightRequest="400"
+               HorizontalOptions="Center" VerticalOptions="Center"
                IsVisible="{Binding GameVisible}"/>
-        <BoxView>
+        <Label Text="Chicken"
+               Rotation="-90"
+               HorizontalOptions="Start"
+               IsVisible="{Binding GameVisible}"/>
+        <Label Text="Duck"
+               Rotation="90"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+               IsVisible="{Binding GameVisible}"/>
+        <Label Text="{Binding Count}"
+               HeightRequest="400"
+               VerticalOptions="Center" HorizontalOptions="Center" 
+               VerticalTextAlignment="Center"
+               IsVisible="{Binding ResultsVisible}"/>
+        <Button Text="Again?"
+                Command="{Binding NewGame}"
+                IsVisible="{Binding ResultsVisible}"/>
+        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding GameVisible}">
             <BoxView.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Left" Command="{Binding SwipeCommand}" CommandParameter="Left" />
                 <SwipeGestureRecognizer Direction="Right" Command="{Binding SwipeCommand}" CommandParameter="Right" />
             </BoxView.GestureRecognizers>
         </BoxView>
-
-        <Label Text="{Binding Count}"
-               IsVisible="{Binding ResultsVisible}"/>
-        <Button IsVisible="{Binding ResultsVisible}"/>
     </StackLayout>
 </ContentPage>
